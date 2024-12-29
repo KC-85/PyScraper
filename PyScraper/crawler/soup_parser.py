@@ -1,13 +1,13 @@
 from bs4 import BeautifulSoup
 from crawler.utils import logger
 
-class Parser:
+class SoupParser:
     def parse(self, html_content):
         try:
-            logger.info("Parsing HTML content.")
+            logger.info("Parsing HTML content with Beautiful Soup.")
             soup = BeautifulSoup(html_content, "lxml")
             data = []
-            for item in soup.select(".example-class"):  # Adjust selector as needed
+            for item in soup.select(".example-class"):  # Adjust CSS selector
                 data.append({
                     "title": item.get_text(strip=True),
                     "link": item.get("href")
